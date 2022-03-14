@@ -15,7 +15,7 @@ public class CustMgmtService {
 	
 	public CustMgmtDTO logIn(CustMgmtDTO inDTO) {
 		
-		custMgmtDAO.logIn(inDTO);
+		custMgmtDAO.logIn(inDTO); // 수정 필요.
 		return inDTO;
 	}
 }
