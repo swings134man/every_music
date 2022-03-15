@@ -4,7 +4,7 @@
 
 
 <insert id="create" parameterType="com.modu.everymusic.dto.CustMgmtDTO" >
- 	insert into fin1 values(#{today},#{yesterday},#{high},#{company},#{code})
+ 	insert into custM values(#{custEmal},#{custId},#{custPw},#{custNm},#{custHphn},#{custGen},#{custAge},#{custAddr})
 </insert>
 
 
