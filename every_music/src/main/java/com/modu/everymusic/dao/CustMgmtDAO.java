@@ -7,14 +7,53 @@ import com.modu.everymusic.dto.CustMgmtDTO;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 
+ * <pre>
+ * </pre>
+ * @Class   : 고객관리 DAO 
+ * @File    : CustMgmtDAO.java
+ * @Package : com.modu.everymusic.dao
+ * @author  : seokjunkang
+ * @Date    : 2022. 3. 16. 오전 12:55:37
+ */
 @Repository
 @RequiredArgsConstructor
 public class CustMgmtDAO {
 
-	private SqlSessionTemplate dao;
+	private SqlSessionTemplate db;
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : 고객 로그인
+	 * @Method  : logIn
+	 * @Return  : void
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 16. 오전 1:10:41
+	 * @Version : V1
+	 */
 	public void logIn(CustMgmtDTO inDTO) {
-		dao.selectOne("", inDTO);
+		
+		db.selectOne("", inDTO);
+	}
+	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : 고객 가입
+	 * @Method  : custEntr
+	 * @Return  : int
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 16. 오전 1:16:07
+	 * @Version : V1
+	 */
+	public int custEntr(CustMgmtDTO inDTO) {
+		
+		int result = db.insert("", inDTO);
+		return result;
 	}
 	
 	

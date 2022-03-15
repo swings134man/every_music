@@ -36,14 +36,12 @@
 	비밀번호 : <input type="text" id="CustPw"> <br>
 	<button id="btn_login">로그인</button>
 	<hr color="red">
+	
+	<a href=""> <button>회원가입</button></a> <br>
 
 <div id="result">
 
 </div>	<br>
-
-<form action="" method="get">
-
-</form>
 
 
 </body>
