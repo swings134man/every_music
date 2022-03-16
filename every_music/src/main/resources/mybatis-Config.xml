@@ -7,6 +7,6 @@
       <typeAlias type="com.modu.everymusic.dto.CustMgmtDTO" alias="custVO"></typeAlias>
    </typeAliases>
    <mappers>
-      <mapper resource="mapper/CustMapper.xml" />
+      <mapper resource="mapper/sql-CustM.xml" />
    </mappers>
 </configuration>
