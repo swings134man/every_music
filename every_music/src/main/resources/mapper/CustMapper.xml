@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="O.custMgmt">
+<mapper namespace="O_custMgmt">
 
 <!-- 고객가입  -->
-<insert id="create" parameterType="com.modu.everymusic.dto.CustMgmtDTO" >
- 	insert into custM values(#{custEmal},#{custId},#{custPw},#{custNm},#{custHphn},#{custGen},#{custAge},#{custAddr})
+<insert id="custEntr" parameterType="custVO" >
+ 	insert into custM (
+ 		custNo, 
+ 		custEmal,
+ 		custId,
+ 		custPw,
+ 		custNm,
+ 		custHphn,
+ 		custGen,
+ 		custAge,
+ 		custAddr
+ 	)values(
+ 		NULL,
+	 	#{custEmal},
+	 	#{custId},
+	 	#{custPw},
+	 	#{custNm},
+	 	#{custHphn},
+	 	#{custGen},
+	 	#{custAge},
+	 	#{custAddr}
+ 	)
 </insert>
 
 

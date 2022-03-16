@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CustMgmtDAO {
 
-	private SqlSessionTemplate db;
+	private final SqlSessionTemplate db;
 	
 	/**
 	 * 
@@ -52,7 +52,7 @@ public class CustMgmtDAO {
 	 */
 	public int custEntr(CustMgmtDTO inDTO) {
 		
-		int result = db.insert("O.custMgmt.create", inDTO);
+		int result = db.insert("O_custMgmt.custEntr", inDTO);
 		return result;
 	}
 	

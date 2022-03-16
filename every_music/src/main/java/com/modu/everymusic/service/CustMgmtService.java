@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.modu.everymusic.dao.CustMgmtDAO;
 import com.modu.everymusic.dto.CustMgmtDTO;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -21,8 +23,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class CustMgmtService {
-	private CustMgmtDAO custMgmtDAO;
-	private BCryptPasswordEncoder pwEncoder; // 암호화
+	private final CustMgmtDAO custMgmtDAO;
+	private final BCryptPasswordEncoder pwEncoder; // 암호화
 	
 	/**
 	 * 
@@ -58,14 +60,11 @@ public class CustMgmtService {
 		inDTO.setCustPw(pwEncoder.encode(inDTO.getCustPw())); // 고객비밀번호 암호화SET	
 		
 		int result = custMgmtDAO.custEntr(inDTO);
-		
 		if(result == 1) {
-			toWhere = "entrSuccess";
-			
-		} else {
-			toWhere = "entrFail";
+			toWhere = "회원가입 성공";
+		}else {
+			toWhere = "회원가입 실패";
 		}
-		
 		
 		return toWhere;
 	}

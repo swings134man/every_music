@@ -1,12 +1,14 @@
 package com.modu.everymusic;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.modu.everymusic.dto.CustMgmtDTO;
 import com.modu.everymusic.service.CustMgmtService;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -56,12 +58,13 @@ public class CustMgmtController {
 	 * @Version : V1
 	 */
 	@RequestMapping("custmgmt/cust/v1/custEntr")
-	@ResponseBody
-	public String custEntr(CustMgmtDTO inDTO) {
+	public String custEntr(CustMgmtDTO inDTO, Model model) {
 		
 		String result = custMgmtService.custEntr(inDTO);
 		
-		return result;
+		model.addAttribute("value", result);
+		
+		return "entrSuccess";
 	}
 	
 }// class
