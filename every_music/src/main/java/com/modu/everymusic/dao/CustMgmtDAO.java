@@ -52,7 +52,7 @@ public class CustMgmtDAO {
 	 */
 	public int custEntr(CustMgmtDTO inDTO) {
 		
-		int result = db.insert("", inDTO);
+		int result = db.insert("O.custMgmt.create", inDTO);
 		return result;
 	}
 	

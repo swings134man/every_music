@@ -37,7 +37,7 @@
 	<button id="btn_login">로그인</button>
 	<hr color="red">
 	
-	<a href=""> <button>회원가입</button></a> <br>
+	<a href="custEntr.jsp"> <button>회원가입</button></a> <br>
 
 <div id="result">
 

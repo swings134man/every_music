@@ -5,7 +5,7 @@
 
 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/testdb?useSSL=false"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/ev_music?useSSL=false"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="1234"></property>
 	</bean>

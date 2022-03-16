@@ -21,7 +21,6 @@ import lombok.RequiredArgsConstructor;
  */
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("custmgmt/cust")
 public class CustMgmtController {
 	private final CustMgmtService custMgmtService;
 	
@@ -36,7 +35,7 @@ public class CustMgmtController {
 	 * @Date    : 2022. 3. 16. 오전 12:53:48
 	 * @Version : V1
 	 */
-	@RequestMapping("/v1/logIn")
+	@RequestMapping("custmgmt/cust/v1/logIn")
 	@ResponseBody
 	public CustMgmtDTO logIn(CustMgmtDTO inDTO) {
 		CustMgmtDTO outDTO = new CustMgmtDTO();
@@ -56,7 +55,7 @@ public class CustMgmtController {
 	 * @Date    : 2022. 3. 16. 오전 1:15:14
 	 * @Version : V1
 	 */
-	@RequestMapping("/v1/custEntr")
+	@RequestMapping("custmgmt/cust/v1/custEntr")
 	@ResponseBody
 	public String custEntr(CustMgmtDTO inDTO) {
 		
