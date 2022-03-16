@@ -1,4 +1,4 @@
-package com.modu.everymusic;
+package com.modu.everymusic.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.modu.everymusic.dto.CustMgmtDTO;
 import com.modu.everymusic.service.CustMgmtService;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 /**

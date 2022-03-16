@@ -5,15 +5,15 @@
 <!-- 고객가입  -->
 <insert id="custEntr" parameterType="custVO" >
  	insert into custM (
- 		custNo, 
- 		custEmal,
- 		custId,
- 		custPw,
- 		custNm,
- 		custHphn,
- 		custGen,
- 		custAge,
- 		custAddr
+ 		custNo, 		/*고객번호(Auto)*/
+ 		custEmal,		/*고객email*/
+ 		custId,			/*고객ID*/
+ 		custPw,			/*고객PW*/
+ 		custNm,			/*고객이름*/
+ 		custHphn,		/*고객핸드폰번호*/
+ 		custGen,		/*고객성별*/
+ 		custAge,		/*고객나이*/
+ 		custAddr		/*고객주소*/
  	)values(
  		NULL,
 	 	#{custEmal},
@@ -25,6 +25,9 @@
 	 	#{custAge},
 	 	#{custAddr}
  	)
+ 	/*author : seokjunKang
+ 	  name   : 고객가입 쿼리 (custEntr) insert 	
+ 	*/
 </insert>
 
 
