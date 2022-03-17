@@ -1,5 +1,6 @@
 package com.modu.everymusic.service;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 public class CustMgmtService {
 	private final CustMgmtDAO custMgmtDAO;
 	private final BCryptPasswordEncoder pwEncoder; // 암호화
-	
+	private final UsernamePasswordAuthenticationToken token; // 스프링 시큐리티 Authen Token 관련.
 	/**
 	 * 
 	 * <pre>
