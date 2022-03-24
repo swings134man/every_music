@@ -35,9 +35,22 @@
 			}) //ajax
 		})//click
 	}) //function   */
+	
+	$(function() {
+		//$('#typeRadio')
+		
+	})//function
+	
 </script>
 <body>
 	<h1>회원가입 창</h1>
+	
+	전송 타입 변환 : <br>
+	<input type="radio" id="typeRadio" value="syncRadio">동기
+	<input type="radio" id="typeRadio" value="asyncRadio">Rest 방식
+	<hr>
+	
+	<div id="sync">
 	 <form action="custmgmt/cust/v1/custEntr"> 
 		이메일 : <input type="email" id="custEmal" name="custEmal"><br>
 		아이디 : <input type="text" id="custId" name="custId"><br>
@@ -54,7 +67,30 @@
 		
 		<button id="btn_entr">회원가입</button>
 	 </form>
+	 </div>
+	 
+	 <div id="async">
+		 <form action="restcustmgmt/cust/v1/insert"> 
+			이메일 : <input type="email" id="custEmal" name="custEmal"><br>
+			아이디 : <input type="text" id="custId" name="custId"><br>
+			비밀번호 : <input type="password" id="custPw" name="custPw"><br>
+			이름 : <input type="text" id="custNm" name="custNm"><br>
+			
+			성별 : <br> <input type="radio" id="custGen" name="custGen" value="M">남성
+					   <input type="radio" id="custGen" name="custGen" value="F">여성
+			<br>
+			
+			핸드폰번호 : <input type="text" id="custHphn" name="custHphn"><br>
+			나이 : <input type="text" id="custAge" name="custAge"><br>
+			주소 : <input type="text" id="custAddr" name="custAddr"><br>
+			
+			<button id="btn_entr">회원가입</button>
+		 </form>
+	 </div>
+	 
 	<hr>
+	
+	
 	
 	<a href="index.jsp"><button>홈으로</button></a>
 

@@ -1,5 +1,6 @@
 package com.modu.everymusic.service;
 
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -65,6 +66,7 @@ public class CustMgmtService {
 		}else {
 			toWhere = "회원가입 실패";
 		}
+		
 		
 		return toWhere;
 	}
