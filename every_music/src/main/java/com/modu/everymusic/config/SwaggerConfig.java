@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -20,6 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@EnableWebMvc
 public class SwaggerConfig {
 
 	private static final String API_NAME = "Every_Music";
@@ -31,14 +33,14 @@ public class SwaggerConfig {
 		
 		List<ResponseMessage> responseMessages = new ArrayList<ResponseMessage>();
 		responseMessages.add(new ResponseMessageBuilder().code(200).message("Request Success").build());
-		responseMessages.add(new ResponseMessageBuilder().code(500).message("Server Error").responseModel(new ModelRef("Error")).build());
+		responseMessages.add(new ResponseMessageBuilder().code(500).message("Server Error").build());
 		responseMessages.add(new ResponseMessageBuilder().code(404).message("Not Found Page").build());
 		
 		return new Docket(DocumentationType.SWAGGER_2)
 										   .apiInfo(apiInfo())
 										   .select()
 										   .apis(RequestHandlerSelectors.basePackage("com.modu.everymusic.controller"))	// 경로설정
-										   .paths(PathSelectors.any())			// 모든 패키지에 대하여 경로 설정 
+										   .paths(PathSelectors.ant("/api/**"))			// 모든 패키지에 대하여 경로 설정 
 										   .build()
 										   .useDefaultResponseMessages(false)	// Response Message 설정 (Default 해제)
 										   .globalResponseMessage(RequestMethod.GET, responseMessages)
@@ -47,7 +49,7 @@ public class SwaggerConfig {
 										   .globalResponseMessage(RequestMethod.PUT, responseMessages);
 	}
 	
-	public ApiInfo apiInfo() {
+	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder().title(API_NAME)
 								   .version(API_VERSION)
 								   .description(API_DESCRIPTION)

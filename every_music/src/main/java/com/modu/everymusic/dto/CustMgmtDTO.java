@@ -35,4 +35,5 @@ public class CustMgmtDTO {
 	private String custAge;			/*고객나이*/
 	private String custAddr;		/*고객주소*/
 	
+	private String msg;
 }

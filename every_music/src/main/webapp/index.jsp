@@ -42,7 +42,7 @@
 <div id="result">
 
 </div>	<br>
-
+<a href="http://localhost:8889/everymusic/swagger-ui.html">swagger TEST</a>
 
 </body>
 </html>

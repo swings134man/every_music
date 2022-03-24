@@ -56,5 +56,11 @@ public class CustMgmtDAO {
 		return result;
 	}
 	
+	public CustMgmtDTO retrieveCustEntr(CustMgmtDTO inDTO) {
+		
+		CustMgmtDTO outDTO = db.selectOne("O_custMgmt.retrieveCustEntr", inDTO);
+		return outDTO;
+	}
+	
 	
 }
