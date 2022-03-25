@@ -12,7 +12,6 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseMessageBuilder;
-import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
@@ -27,6 +26,7 @@ public class SwaggerConfig {
 	private static final String API_NAME = "Every_Music";
 	private static final String API_VERSION = "V1";
 	private static final String API_DESCRIPTION = "EveryMusic API TEST";
+	
 	
 	@Bean
 	public Docket api() {

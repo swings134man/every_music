@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class RestCustMgmtService {
 
 	private final CustMgmtDAO custMgmtDAO;
-	private final BCryptPasswordEncoder pwEncoder; // 암호화
+	//private final BCryptPasswordEncoder pwEncoder; // 암호화
 	
 	/**
 	 * 
