@@ -26,6 +26,17 @@ public class RestCustMgmtController {
 	
 	private final RestCustMgmtService restCustMgmtService;
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 고객 가입
+	 * @Method  : userInsert
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 26. 오후 8:56:37
+	 * @Version : V1
+	 */
 	@ApiOperation(value = "회원 등록", notes = "회원가입 정보를 등록.")
 	@PostMapping("/v1/insert")
 	@ResponseBody
@@ -36,10 +47,23 @@ public class RestCustMgmtController {
 		return out;
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 고객가입정보 확인
+	 * @Method  : retrieveCustEntr
+	 * @Return  : CustMgmtDTO
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 26. 오후 8:56:55
+	 * @Version : V1
+	 */
 	@ApiOperation(value = "회원 ID로 정보 찾기", notes = "회원가입 정보를 검색.")
 	@GetMapping("/v1/search")
 	@ResponseBody
-	public CustMgmtDTO retrieveCustEntr(@RequestParam String userId) {
+	public CustMgmtDTO retrieveCustEntr(@RequestParam @ApiParam(value = "ID로 고객 가입 정보 확인", required = true) 
+										String userId) {
+		
 		CustMgmtDTO inDTO = new CustMgmtDTO();
 		inDTO.setCustId(userId);
 		

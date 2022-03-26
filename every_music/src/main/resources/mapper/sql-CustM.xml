@@ -30,6 +30,7 @@
  	*/
 </insert>
 
+<!-- 고객가입 정보확인  -->
 <select id="retrieveCustEntr" parameterType="custVO" resultType="custVO">
 	SELECT 
 		custEmal,		/*고객email*/
@@ -42,6 +43,9 @@
  		custAddr		/*고객주소*/
  	FROM custM
  	WHERE custId = 	#{custId}
+ 	/*author : seokjunKang
+ 	  name   : 고객정보 확인 쿼리 (retrieveCustEntr) SELECT 	
+ 	*/
 </select>
 
 </mapper>

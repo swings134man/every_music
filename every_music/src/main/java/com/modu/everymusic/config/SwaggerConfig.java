@@ -26,6 +26,7 @@ public class SwaggerConfig {
 	private static final String API_NAME = "Every_Music";
 	private static final String API_VERSION = "V1";
 	private static final String API_DESCRIPTION = "EveryMusic API TEST";
+	private static final String API_URL = "http://localhost:8889/everymusic/swagger-ui.html";
 	
 	
 	@Bean
@@ -54,6 +55,7 @@ public class SwaggerConfig {
 								   .version(API_VERSION)
 								   .description(API_DESCRIPTION)
 								   .license("swings134 License")
+								   .termsOfServiceUrl(API_URL)
 								   .build();
 	}
 	

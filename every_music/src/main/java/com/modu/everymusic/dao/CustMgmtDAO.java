@@ -56,6 +56,17 @@ public class CustMgmtDAO {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 고객가입정보 검색
+	 * @Method  : retrieveCustEntr
+	 * @Return  : CustMgmtDTO
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 26. 오후 9:01:55
+	 * @Version : V1
+	 */
 	public CustMgmtDTO retrieveCustEntr(CustMgmtDTO inDTO) {
 		
 		CustMgmtDTO outDTO = db.selectOne("O_custMgmt.retrieveCustEntr", inDTO);

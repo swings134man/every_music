@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class RestCustMgmtService {
 
 	private final CustMgmtDAO custMgmtDAO;
-	//private final BCryptPasswordEncoder pwEncoder; // 암호화
+	private final BCryptPasswordEncoder pwEncoder; // 암호화
 	
 	/**
 	 * 
@@ -27,14 +27,24 @@ public class RestCustMgmtService {
 	 * @Version : V1
 	 */
 	public String userInsert(CustMgmtDTO inDTO) {
-		return "Success";
+		
+		inDTO.setCustPw(pwEncoder.encode(inDTO.getCustPw())); // 고객비밀번호 암호화SET
+		
+		int result = custMgmtDAO.custEntr(inDTO);
+		
+		if(result == 1) {
+			return "Success";
+		} else {
+			return "fail";
+		}
+		
 	}
 	
 	/**
 	 * 
 	 * <pre>
 	 * </pre>
-	 * @Name    : User 정보검색 API 
+	 * @Name    : API 고객가입정보확인 
 	 * @Method  : retrieveCustEntr
 	 * @Return  : CustMgmtDTO
 	 * @author  : seokjunkang
