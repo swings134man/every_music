@@ -1,5 +1,6 @@
 package com.modu.everymusic.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -70,6 +71,29 @@ public class RestCustMgmtController {
 		CustMgmtDTO outDTO = restCustMgmtService.retrieveCustEntr(inDTO);
 		
 		return outDTO;
+	}
+	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원 정보 삭제
+	 * @Method  : deleteCustEntr
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 28. 오후 6:53:26
+	 * @Version : V1
+	 */
+	@ApiOperation(value = "회원 ID로 회원 정보 삭제", notes = "회원가입 정보를 삭제.")
+	@DeleteMapping("/v1/delete")
+	@ResponseBody
+	public String deleteCustEntr(@RequestParam @ApiParam(value = "ID로 고객 정보 삭제", required = true) String userId) {
+		CustMgmtDTO inDTO = new CustMgmtDTO();
+		inDTO.setCustId(userId);
+		
+		String msg = restCustMgmtService.deleteCustEntr(inDTO);
+		
+		return msg;
 	}
 	
 	

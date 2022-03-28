@@ -73,5 +73,21 @@ public class CustMgmtDAO {
 		return outDTO;
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보 삭제
+	 * @Method  : deleteCustEntr
+	 * @Return  : int
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 28. 오후 6:54:10
+	 * @Version : V1
+	 */
+	public int deleteCustEntr(CustMgmtDTO inDTO) {
+		int result = db.delete("O_custMgmt.deleteCustEntr", inDTO);
+		return result; 
+	}
+	
 	
 }

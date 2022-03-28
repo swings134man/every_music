@@ -48,4 +48,14 @@
  	*/
 </select>
 
+<!-- 회원정보 삭제  -->
+<delete id="deleteCustEntr" parameterType="custVO">
+	DELETE FROM custM 
+		WHERE custID = #{custId}
+	
+	/*author : seokjunKang
+ 	  name   : 고객정보 확인 쿼리 (retrieveCustEntr) SELECT 	
+ 	*/
+</delete>
+
 </mapper>

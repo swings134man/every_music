@@ -79,4 +79,28 @@ public class RestCustMgmtService {
 		
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보삭제
+	 * @Method  : deleteCustEntr
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 28. 오후 6:53:43
+	 * @Version : V1
+	 */
+	public String deleteCustEntr(CustMgmtDTO inDTO) {
+		String msg = "";
+		
+		int result = custMgmtDAO.deleteCustEntr(inDTO);
+		if(result == 1) {
+			msg = "delete success";
+		} else {
+			msg = "delete fail";
+		}
+		
+		return msg;
+	}
+	
 }
