@@ -11,8 +11,8 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.modu.everymusic">
-		<level value="info" />
+	<logger name="com.modu.everymusic" >
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->

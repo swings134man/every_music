@@ -40,7 +40,8 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>	
 		
-		<!-- Logging -->
+		<!-- Logging sl4fj -->
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -57,6 +58,11 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+  			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+  			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			 <version>1.16</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -128,13 +134,6 @@
 			<artifactId>jquery</artifactId>
 			<version>3.6.0</version>
 		</dependency>
-		<!-- 오라클 connector, driver설정 -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.3</version>
-		</dependency>
-
 		<!-- dbcp -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
