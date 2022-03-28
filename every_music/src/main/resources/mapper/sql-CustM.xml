@@ -58,4 +58,30 @@
  	*/
 </delete>
 
+<!-- 고객가입 정보확인 Page -->
+<select id="retrieveCustAllPage" parameterType="custVO" resultType="custVO">
+	SELECT 
+		custEmal,		/*고객email*/
+ 		custId,			/*고객ID*/
+ 		custPw,			/*고객PW*/
+ 		custNm,			/*고객이름*/
+ 		custHphn,		/*고객핸드폰번호*/
+ 		custGen,		/*고객성별*/
+ 		custAge,		/*고객나이*/
+ 		custAddr		/*고객주소*/
+ 	FROM custM
+	<where>
+		<if test="custId != null">
+			AND custId = #{custId}
+		</if>
+		<if test="custNm != null">
+				AND custNm = #{custNm}
+		</if>
+	</where> 	
+ 	
+ 	/*author : seokjunKang
+ 	  name   : 고객정보 확인 쿼리 (retrieveCustEntr) SELECT 	
+ 	*/
+</select>
+
 </mapper>

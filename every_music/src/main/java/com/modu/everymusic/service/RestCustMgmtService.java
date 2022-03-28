@@ -1,5 +1,7 @@
 package com.modu.everymusic.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -101,6 +103,30 @@ public class RestCustMgmtService {
 		}
 		
 		return msg;
+	}
+	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보 검색 페이징
+	 * @Method  : retrieveCustAllPage
+	 * @Return  : List<CustMgmtDTO>
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 29. 오전 3:26:32
+	 * @Version : V1
+	 */
+	public List<CustMgmtDTO> retrieveCustAllPage(CustMgmtDTO inDTO, int pageNo, int pageRow) {
+		String msg = "";
+		
+		List<CustMgmtDTO> outDTO = custMgmtDAO.retrieveCustAllPage(inDTO, pageNo, pageRow);
+		if(outDTO == null) {
+			msg = "조회 값이 존재하지 않습니다.";
+		} else {
+			msg = "조회 완료.";
+		}
+		
+		return outDTO; 
 	}
 	
 }

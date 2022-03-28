@@ -1,5 +1,7 @@
 package com.modu.everymusic.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,11 +18,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/restcustmgmt/cust")
 @Api("Rest CustMgmt Controller API") // API 컨트롤러 이름
+@Slf4j
 public class RestCustMgmtController {
 	
 	// 스웨거 주소 : http://localhost:8889/everymusic/swagger-ui.html
@@ -96,5 +100,31 @@ public class RestCustMgmtController {
 		return msg;
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보 검색 페이징
+	 * @Method  : retrieveCustAllPage
+	 * @Return  : List<CustMgmtDTO>
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 29. 오전 3:26:46
+	 * @Version : V1
+	 */
+	@ApiOperation(value = "회원 정보로 조회 Paging", notes = "회원가입 정보 페이징")
+	@GetMapping("/v1/custpage")
+	@ResponseBody
+	public List<CustMgmtDTO> retrieveCustAllPage(@RequestParam(required = false) String custId, @RequestParam(required = false) String custNm,
+												 @RequestParam(defaultValue = "1") int pageNo, @RequestParam int pageRow) {
+		
+		CustMgmtDTO inDTO = CustMgmtDTO.builder().custId(custId)
+					   							 .custNm(custNm)
+					   							 .build();
+		
+		log.debug("입력값 : " + inDTO);
+		
+		List<CustMgmtDTO> outDTO = restCustMgmtService.retrieveCustAllPage(inDTO, pageNo, pageRow);
+		return outDTO;
+	}
 	
 }//class

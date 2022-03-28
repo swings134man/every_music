@@ -1,5 +1,8 @@
 package com.modu.everymusic.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -37,6 +40,7 @@ public class CustMgmtDAO {
 	public void logIn(CustMgmtDTO inDTO) {
 		
 		db.selectOne("", inDTO);
+		
 	}
 	
 	/**
@@ -89,5 +93,24 @@ public class CustMgmtDAO {
 		return result; 
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보 검색 페이징
+	 * @Method  : retrieveCustAllPage
+	 * @Return  : List<CustMgmtDTO>
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 29. 오전 3:26:11
+	 * @Version : V1
+	 */
+	public List<CustMgmtDTO> retrieveCustAllPage(CustMgmtDTO inDTO, int pageNo, int pageRow) {
+		int pageNumber = (pageNo -1) * pageRow;
+		
+		RowBounds rowBounds = new RowBounds(pageNumber, pageRow);
+		
+		List<CustMgmtDTO> outDTO = db.selectList("O_custMgmt.retrieveCustAllPage", inDTO, rowBounds);
+		return outDTO;
+	}
 	
 }
