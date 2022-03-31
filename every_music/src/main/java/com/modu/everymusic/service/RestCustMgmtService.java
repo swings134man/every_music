@@ -122,6 +122,7 @@ public class RestCustMgmtService {
 		List<CustMgmtDTO> outDTO = custMgmtDAO.retrieveCustAllPage(inDTO, pageNo, pageRow);
 		if(outDTO == null) {
 			msg = "조회 값이 존재하지 않습니다.";
+			
 		} else {
 			msg = "조회 완료.";
 		}
