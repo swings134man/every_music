@@ -146,6 +146,11 @@ public class RestCustMgmtService {
 		
 		log.debug("UPDATE 입력 정보 : " + inDTO);
 		
+		if(inDTO.getCustId() == null) {
+			msg = "ID 가 없습니다.";
+			return msg;
+		}
+		
 		int result = custMgmtDAO.updateCustEntr(inDTO);
 		if(result == 1) {
 			msg =  "회원정보 수정이 완료되었습니다.";
