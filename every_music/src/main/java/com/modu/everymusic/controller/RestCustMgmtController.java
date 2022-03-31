@@ -131,6 +131,9 @@ public class RestCustMgmtController {
 	/**
 	 * 
 	 * <pre>
+	 * String 타입 ResponseBody로 return 시(한글) 
+	 * 한글 인식 불가시
+	 * produces = "text/plain;charset=UTF-8" 해당 설정 set 필요
 	 * </pre>
 	 * @Name    : API 회원정보 수정
 	 * @Method  : updateCustEntr
@@ -140,7 +143,7 @@ public class RestCustMgmtController {
 	 * @Version : V1
 	 */
 	@ApiOperation(value = "한명의 회원정보 수정", notes = "회원가입 정보 수정")
-	@PutMapping
+	@PutMapping(produces = "text/plain;charset=UTF-8")
 	@ResponseBody
 	public String updateCustEntr(@RequestBody @ApiParam(value = "한명의 회원정보 수정", required = true) CustMgmtDTO inDTO,
 								 @RequestParam(required = true) String custId
