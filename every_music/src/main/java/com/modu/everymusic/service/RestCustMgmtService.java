@@ -148,6 +148,7 @@ public class RestCustMgmtService {
 		int result = custMgmtDAO.updateCustEntr(inDTO);
 		if(result == 1) {
 			msg =  "회원정보 수정이 완료되었습니다.";
+			
 		}else {
 			msg =  "회원정보 수정이 실패했습니다.";
 		}
