@@ -111,6 +111,7 @@
 	
 	/*author : seokjunKang
  	  name   : 고객정보 수정 쿼리 (updateCustEntr) UPDATE 	
+ 	  pre	 : 해당 항목만 변경 가능
  	*/
 </update>
 
