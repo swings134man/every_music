@@ -113,4 +113,22 @@ public class CustMgmtDAO {
 		return outDTO;
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보 수정 
+	 * @Method  : updateCustEntr
+	 * @Return  : int
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 31. 오후 6:34:33
+	 * @Version : V1
+	 */
+	public int updateCustEntr(CustMgmtDTO inDTO) {
+		
+		int result = db.update("O_custMgmt.updateCustEntr", inDTO);
+		
+		return result;
+	}
+	
 }

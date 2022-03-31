@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -125,6 +126,30 @@ public class RestCustMgmtController {
 		
 		List<CustMgmtDTO> outDTO = restCustMgmtService.retrieveCustAllPage(inDTO, pageNo, pageRow);
 		return outDTO;
+	}
+	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보 수정
+	 * @Method  : updateCustEntr
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 31. 오후 6:34:10
+	 * @Version : V1
+	 */
+	@ApiOperation(value = "한명의 회원정보 수정", notes = "회원가입 정보 수정")
+	@PutMapping
+	@ResponseBody
+	public String updateCustEntr(@RequestBody @ApiParam(value = "한명의 회원정보 수정", required = true) CustMgmtDTO inDTO,
+								 @RequestParam(required = true) String custId
+								) {
+		
+		inDTO.setCustId(custId);
+		
+		String msg = restCustMgmtService.updateCustEntr(inDTO);
+		return msg;
 	}
 	
 }//class

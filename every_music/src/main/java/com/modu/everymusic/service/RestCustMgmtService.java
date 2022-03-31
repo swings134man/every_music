@@ -129,4 +129,30 @@ public class RestCustMgmtService {
 		return outDTO; 
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 회원정보 수정
+	 * @Method  : updateCustEntr
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 3. 31. 오후 6:34:23
+	 * @Version : V1
+	 */
+	public String updateCustEntr(CustMgmtDTO inDTO) {
+		String msg = "";
+		
+		log.debug("UPDATE 입력 정보 : " + inDTO);
+		
+		int result = custMgmtDAO.updateCustEntr(inDTO);
+		if(result == 1) {
+			msg =  "회원정보 수정이 완료되었습니다.";
+		}else {
+			msg =  "회원정보 수정이 실패했습니다.";
+		}
+		
+		return msg;
+	}
+	
 }

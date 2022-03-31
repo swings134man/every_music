@@ -54,7 +54,7 @@
 		WHERE custID = #{custId}
 	
 	/*author : seokjunKang
- 	  name   : 고객정보 확인 쿼리 (retrieveCustEntr) SELECT 	
+ 	  name   : 회원정보 삭제 쿼리 (deleteCustEntr) DELETE 	
  	*/
 </delete>
 
@@ -80,8 +80,38 @@
 	</where> 	
  	
  	/*author : seokjunKang
- 	  name   : 고객정보 확인 쿼리 (retrieveCustEntr) SELECT 	
+ 	  name   : 고객정보 확인 page 쿼리 (retrieveCustAllPage) SELECT 	
  	*/
 </select>
+
+<!-- 회원정보 수정  -->
+<update id="updateCustEntr" parameterType="custVO">
+	UPDATE custM
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="custNm != null">
+				custNm = #{custNm},
+			</if>
+			<if test="custHphn != null">
+				custHphn = #{custHphn},
+			</if>
+			<if test="custGen != null">
+				custGen = #{custGen},
+			</if>
+			<if test="custAge != null">
+				custAge = #{custAge},
+			</if>
+			<if test="custAddr != null">
+				custAddr = #{custAddr},
+			</if>
+			<if test="custEmal != null">
+				custEmal = #{custEmal},
+			</if>
+		</trim>
+	WHERE custId = #{custId}
+	
+	/*author : seokjunKang
+ 	  name   : 고객정보 수정 쿼리 (updateCustEntr) UPDATE 	
+ 	*/
+</update>
 
 </mapper>

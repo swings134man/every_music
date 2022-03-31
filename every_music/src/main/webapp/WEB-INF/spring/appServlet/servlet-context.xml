@@ -25,6 +25,7 @@
 	
 	<beans:bean id="swagger2Config" class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"></beans:bean>
 
+	<!--  Handler Mapping에 해당하는 URL이 없으면 default-servlet으로 처리 -->
 	<default-servlet-handler />
 
 	<resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"></resources>

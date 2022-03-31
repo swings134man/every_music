@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
 	 <!-- sql 로깅 설정이전. -->
-	 <bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+ 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/ev_music?useSSL=false"></property>
 		<property name="username" value="root"></property>
@@ -19,4 +19,20 @@
 	<bean id="mybatis" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="config"></constructor-arg>
 	</bean> 
+<!-- 	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/ev_music?useSSL=false"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+	
+	<bean id="config" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-Config.xml"></property>
+		<property name="dataSource" ref="dbcp"></property>
+		<property name="mapperLocations" value="classpath:mapper/**"></property>
+	</bean>
+
+	<bean id="mybatis" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="config"></constructor-arg>
+	</bean>  -->
 </beans>
