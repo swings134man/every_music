@@ -115,4 +115,16 @@
  	*/
 </update>
 
+<!-- 회원 로그인 -->
+<select id="retrieveCustLogin" parameterType="custVO" resultType="String">
+SELECT custPw 
+FROM custM
+WHERE custId = ${custID}
+
+	/*author : seokjunKang
+ 	  name   : 고객로그인 쿼리 (retrieveCustLogin) SELECT
+ 	  pre	 : 로그인 PW 확인
+ 	*/
+</select>
+
 </mapper>

@@ -162,4 +162,40 @@ public class RestCustMgmtService {
 		return msg;
 	}
 	
+	/**
+	 * \
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 로그인 확인
+	 * @Method  : custLogin
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 4. 5. 오후 5:57:44
+	 * @Version : V1
+	 */
+	public String custLogin(CustMgmtDTO inDTO) {
+		String msg = "";
+		String getPw = custMgmtDAO.custLogin(inDTO);
+		
+		boolean logConfirm = false;
+		
+		if(getPw.equals("null")) {
+			msg = "해당 ID가 존재하지 않습니다.";
+			return msg;
+			
+		}else {
+			
+			if(inDTO.getCustPw().matches(getPw)) {
+				logConfirm = true;
+				msg = "Login success";
+				
+				return msg;
+			}else {
+				msg = "Login fail";
+				return msg;
+			}
+			
+		}
+	}
+	
 }

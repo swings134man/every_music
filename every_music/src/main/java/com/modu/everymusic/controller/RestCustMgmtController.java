@@ -143,7 +143,7 @@ public class RestCustMgmtController {
 	 * @Version : V1
 	 */
 	@ApiOperation(value = "한명의 회원정보 수정", notes = "회원가입 정보 수정")
-	@PutMapping(produces = "text/plain;charset=UTF-8")
+	@PutMapping(value = "/v1/custupdate", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
 	public String updateCustEntr(@RequestBody @ApiParam(value = "한명의 회원정보 수정", required = true) CustMgmtDTO inDTO,
 								 @RequestParam(required = true) String custId
@@ -152,6 +152,32 @@ public class RestCustMgmtController {
 		inDTO.setCustId(custId);
 		
 		String msg = restCustMgmtService.updateCustEntr(inDTO);
+		return msg;
+	}
+	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 로그인 확인
+	 * @Method  : custLogin
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 4. 5. 오후 5:59:26
+	 * @Version : V1
+	 */
+	@ApiOperation(value = "로그인", notes = "회원 로그인")
+	@PostMapping(value = "/v1/custlogin", produces = "text/plain;charset=UTF-8")
+	@ResponseBody
+	public String custLogin(@RequestParam(required = true) String custId,
+						  @RequestParam(required = true) String custPw
+						 ) {
+		CustMgmtDTO inDTO = new CustMgmtDTO();
+		inDTO.setCustId(custId);
+		inDTO.setCustPw(custPw);
+		
+		String msg = restCustMgmtService.custLogin(inDTO);
+		
 		return msg;
 	}
 	

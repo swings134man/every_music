@@ -131,4 +131,21 @@ public class CustMgmtDAO {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : API 로그인 확인
+	 * @Method  : custLogin
+	 * @Return  : String
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 4. 5. 오후 5:59:45
+	 * @Version : V1
+	 */
+	public String custLogin(CustMgmtDTO inDTO) {
+		String getPw = db.selectOne("O_custMgmt.retrieveCustLogin", inDTO);
+		
+		return getPw;
+	}
+	
 }
