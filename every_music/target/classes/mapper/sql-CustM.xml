@@ -116,10 +116,10 @@
 </update>
 
 <!-- 회원 로그인 -->
-<select id="retrieveCustLogin" parameterType="custVO" resultType="String">
-SELECT custPw 
+<select id="retrieveCustLogin" parameterType="custVO" resultType="custVO">
+SELECT custPw, custId 
 FROM custM
-WHERE custId = ${custID}
+WHERE custId = #{custId}
 
 	/*author : seokjunKang
  	  name   : 고객로그인 쿼리 (retrieveCustLogin) SELECT

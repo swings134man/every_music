@@ -1,6 +1,10 @@
 package com.modu.everymusic.service;
 
 
+
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +14,7 @@ import com.modu.everymusic.dto.CustMgmtDTO;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
@@ -23,6 +28,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CustMgmtService {
 	private final CustMgmtDAO custMgmtDAO;
 	private final BCryptPasswordEncoder pwEncoder; // 암호화
@@ -38,10 +44,33 @@ public class CustMgmtService {
 	 * @Date    : 2022. 3. 16. 오전 12:55:21
 	 * @Version : V1
 	 */
-	public CustMgmtDTO logIn(CustMgmtDTO inDTO) {
+	public int logIn(CustMgmtDTO inDTO, HttpSession session) {
 		
-		custMgmtDAO.logIn(inDTO); // 수정 필요.
-		return inDTO;
+		CustMgmtDTO outDTO = custMgmtDAO.logIn(inDTO); 
+		int outResult = 0;
+		
+		// id <=> pw 검증 로직
+		if(pwEncoder.matches(inDTO.getCustPw(), outDTO.getCustPw())) {
+			
+			log.debug("패스워드 일치.");
+
+			session.setAttribute("sId", inDTO.getCustId());
+			// 세션 확인
+			log.debug("Service session success : " + session.getAttribute("sId"));
+			outResult = 1;
+			
+			return outResult;
+					
+		} else {
+			// 세션 확인
+			log.debug("Service session fail : " + session.getAttribute("sId"));
+			outResult = 0;
+			
+			return outResult;
+		}
+		
+		
+		
 	}
 	
 	/**

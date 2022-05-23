@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    	//java 
+    	
+    	String sId = (String)session.getAttribute("sId");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +28,18 @@
 						custPw :  pw
 					  },
 				success : function(data){
-					$('#result').append(data.custId + "<br>")
-					$('#result').append(data.custPw)
+					/* $('#result').append(data.custId + "<br>")
+					$('#result').append(data.custPw) */
+					
+					if(data == 0) {
+						console.log("로그인 실패");
+						alert('아이디 혹은 비밀번호 틀렸음.');
+						
+					} else {
+						location.reload();
+					}
+					
+					
 				} //success
 			})//ajax
 		})//click
@@ -32,9 +47,15 @@
 
 </script>
 <body>
+<% if(sId == null) {%>
 	아이디 : <input type="text" id="CustId"> <br>
 	비밀번호 : <input type="text" id="CustPw"> <br>
 	<button id="btn_login">로그인</button>
+<%} else {%>	
+	<%=sId %>님 환영 합니다! <br>
+	<a href="custmgmt/cust/v1/logOut"><button id="btn_logout">로그아웃</button></a>
+<%} %>
+	
 	<hr color="red">
 	
 	<a href="custEntr.jsp"> <button>회원가입</button></a> <br>

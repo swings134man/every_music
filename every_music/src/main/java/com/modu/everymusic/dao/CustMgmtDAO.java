@@ -37,9 +37,10 @@ public class CustMgmtDAO {
 	 * @Date    : 2022. 3. 16. 오전 1:10:41
 	 * @Version : V1
 	 */
-	public void logIn(CustMgmtDTO inDTO) {
+	public CustMgmtDTO logIn(CustMgmtDTO inDTO) {
 		
-		db.selectOne("", inDTO);
+		CustMgmtDTO outDTO = db.selectOne("O_custMgmt.retrieveCustLogin", inDTO);
+		return outDTO;
 		
 	}
 	
