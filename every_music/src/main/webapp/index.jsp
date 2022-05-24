@@ -63,7 +63,11 @@
 <div id="result">
 
 </div>	<br>
-<a href="http://localhost:8889/everymusic/swagger-ui.html">swagger TEST</a>
+<a href="http://localhost:8889/everymusic/swagger-ui.html">swagger TEST</a> <br>
+<hr>
+
+<a href="api/exchange"> <button>환율받아오기</button> </a>
+
 
 </body>
 </html>
