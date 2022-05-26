@@ -15,13 +15,14 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class RestExchange {
+	
+	private final ExchangeApi eApi;
 
 	@RequestMapping("api/exchange")
 	@ResponseBody
 	public String exchange() throws Exception{
 		
-		ExchangeApi api = new ExchangeApi();
-		JsonObject result = api.get();
+		JsonObject result = eApi.get();
 		
 		log.debug("컨트롤러 환율 : " + result);
 		
