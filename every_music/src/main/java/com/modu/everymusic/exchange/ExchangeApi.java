@@ -10,15 +10,37 @@ import org.json.JSONObject;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.modu.everymusic.dto.ExchangeDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 
+ * <pre>
+ * </pre>
+ * @Class   : 환율 API CLASS 
+ * @File    : ExchangeApi.java
+ * @Package : com.modu.everymusic.exchange
+ * @author  : seokjunkang
+ * @Date    : 2022. 5. 27. 오후 7:15:26
+ */
 @Slf4j
 public class ExchangeApi {
 
 	//https://app.exchangerate-api.com/dashboard // 환율 API DashBoard
 	
-	public JsonObject get() throws Exception{
+	/**
+	 * 
+	 * <pre>
+	 * </pre>
+	 * @Name    : 환율 REST API GET METHOD 
+	 * @Method  : get
+	 * @Return  : ExchangeDTO
+	 * @author  : seokjunkang
+	 * @Date    : 2022. 5. 27. 오후 7:15:04
+	 * @Version : V1
+	 */
+	public ExchangeDTO get() throws Exception{
 		
 		//선언 
 		JsonObject result = null;
@@ -72,7 +94,22 @@ public class ExchangeApi {
 		
 		conn.disconnect(); // 연결 종료
 		
-		return (JsonObject) result.get("conversion_rates");
+		// DTO set
+		JsonObject job = (JsonObject)result.get("conversion_rates");
+		
+		// 형변환
+		float kori = job.get("KRW").getAsFloat() * 1000;
+		float jpni = job.get("JPY").getAsFloat() * 1000;
+		float usdi = job.get("USD").getAsFloat() * 1000;
+		
+		ExchangeDTO outDTO = ExchangeDTO.builder().kor(Float.toString(kori))
+											 .jpn(Float.toString(jpni))
+											 .eng(Float.toString(usdi))
+											 .msg("원화 기준 엔, 달러 설정값임.")
+											 .build();
+		
+		
+		return outDTO;
 	}//get
 	
 	
